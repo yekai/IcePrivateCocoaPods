@@ -15,6 +15,14 @@ open class LinkedNode {
         self.value = value
         self.next = next
     }
+    
+    public func printNodes() {
+        var node: LinkedNode? = self
+        while node != nil {
+            print("\(node!.value)")
+            node = node!.next
+        }
+    }
 }
 
 open class LinkedNodeGenerator {
