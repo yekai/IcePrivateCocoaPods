@@ -8,7 +8,7 @@
 import Foundation
 
 open class LinkedNode {
-    var value: Int
+    public var value: Int
     public var next: LinkedNode?
     
     public init(value: Int, next: LinkedNode?) {
@@ -52,5 +52,18 @@ open class LinkedNodeGenerator {
             }
         }
         return head
+    }
+    
+    
+    public class func lastIndexFor(node: LinkedNode, lastIndex: Int) -> LinkedNode {
+        var first: LinkedNode = node, second: LinkedNode = node
+        for _ in 1..<lastIndex {
+            second = second.next!
+        }
+        while second.next != nil {
+            first = first.next!
+            second = second.next!
+        }
+        return first
     }
 }
