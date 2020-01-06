@@ -26,7 +26,7 @@ open class LinkedNode {
 }
 
 open class LinkedNodeGenerator {
-    public func merge(node1: LinkedNode, node2: LinkedNode) -> LinkedNode {
+    public class func merge(node1: LinkedNode, node2: LinkedNode) -> LinkedNode {
         let isHead = node1.value <= node2.value
         let head = isHead ? node1 : node2
         var tempNode: LinkedNode? = head
@@ -44,6 +44,11 @@ open class LinkedNodeGenerator {
                 tempNode!.next = tail
                 tempNode = tail
                 tail = tail!.next
+            }
+        }
+        if midNode != nil {
+            if tempNode != nil {
+                tempNode!.next = midNode
             }
         }
         return head
